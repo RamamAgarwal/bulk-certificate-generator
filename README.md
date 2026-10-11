@@ -51,10 +51,10 @@ pip install -r requirements.txt
 
 All settings have defaults, so nothing is required to get started.
 
-| Environment variable     | Default                       | Meaning                                  |
-| ------------------------ | ----------------------------- | ---------------------------------------- |
-| `DATABASE_URL`           | `sqlite:///./certificates.db` | SQLAlchemy database URL                  |
-| `STORAGE_DIR`            | `./generated_certificates`    | Folder where PDFs are written            |
+| Environment variable       | Default                         | Meaning                                   |
+| -------------------------- | ------------------------------- | ----------------------------------------- |
+| `DATABASE_URL`           | `sqlite:///./certificates.db` | SQLAlchemy database URL                   |
+| `STORAGE_DIR`            | `./generated_certificates`    | Folder where PDFs are written             |
 | `MAX_RECIPIENTS_PER_JOB` | `5000`                        | Largest recipient list a request may have |
 
 To use PostgreSQL instead of SQLite, install a driver (`pip install "psycopg[binary]"`)
@@ -66,9 +66,9 @@ and set `DATABASE_URL=postgresql+psycopg://user:password@localhost/certificates`
 uvicorn app.main:app --reload
 ```
 
-The API is at <http://127.0.0.1:8000>. Interactive documentation (Swagger UI),
+The API is at [http://127.0.0.1:8000](http://127.0.0.1:8000). Interactive documentation (Swagger UI),
 where every endpoint can be tried from the browser, is at
-<http://127.0.0.1:8000/docs>. Tables are created automatically on startup.
+[http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs). Tables are created automatically on startup.
 
 ## Run the tests
 
@@ -81,16 +81,16 @@ touch real data.
 
 ## API
 
-| Method | Path                               | Purpose                                         |
-| ------ | ---------------------------------- | ----------------------------------------------- |
-| POST   | `/jobs`                            | Submit a bulk generation request                |
-| GET    | `/jobs`                            | List jobs, newest first                         |
-| GET    | `/jobs/{job_id}`                   | Job status and progress                         |
-| GET    | `/jobs/{job_id}/certificates`      | Per-recipient results (filter with `?status=`)  |
-| GET    | `/jobs/{job_id}/download`          | All generated certificates of the job as a ZIP  |
-| GET    | `/certificates/{certificate_id}`   | Details of one certificate                      |
-| GET    | `/certificates/{certificate_id}/download` | One certificate as a PDF                 |
-| GET    | `/health`                          | Health check                                    |
+| Method | Path                                        | Purpose                                         |
+| ------ | ------------------------------------------- | ----------------------------------------------- |
+| POST   | `/jobs`                                   | Submit a bulk generation request                |
+| GET    | `/jobs`                                   | List jobs, newest first                         |
+| GET    | `/jobs/{job_id}`                          | Job status and progress                         |
+| GET    | `/jobs/{job_id}/certificates`             | Per-recipient results (filter with`?status=`) |
+| GET    | `/jobs/{job_id}/download`                 | All generated certificates of the job as a ZIP  |
+| GET    | `/certificates/{certificate_id}`          | Details of one certificate                      |
+| GET    | `/certificates/{certificate_id}/download` | One certificate as a PDF                        |
+| GET    | `/health`                                 | Health check                                    |
 
 ### Submit a certificate generation request
 
@@ -154,8 +154,8 @@ curl http://127.0.0.1:8000/jobs/<job_id>
 
 Job statuses:
 
-| Status                  | Meaning                                         |
-| ----------------------- | ----------------------------------------------- |
+| Status                    | Meaning                                         |
+| ------------------------- | ----------------------------------------------- |
 | `pending`               | Accepted, generation has not started            |
 | `processing`            | Certificates are being generated                |
 | `completed`             | Every recipient got a certificate               |
